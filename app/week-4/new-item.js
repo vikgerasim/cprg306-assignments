@@ -9,7 +9,7 @@ export default function NewItem() {
   return (
     <div className="flex justify-center pt-5">
       <div className="flex flex-row bg-white rounded p-2">
-        <span className="mr-5 w-10 h-10 text-center leading-10">
+        <span className="mr-3 w-10 h-10 text-center leading-10">
           {count}
         </span>
         <button
@@ -20,7 +20,7 @@ export default function NewItem() {
           +
         </button>
         <button
-          className="bg-red-600 text-white rounded mr-2 w-10 h-10 hover:bg-red-400 active:bg-red-500 disabled:bg-gray-400"
+          className="bg-red-600 text-white rounded w-10 h-10 hover:bg-red-400 active:bg-red-500 disabled:bg-gray-400"
           onClick={() => count > 1 && setCount(count - 1)}
           disabled={count <= 1 ? true : false}
         >
