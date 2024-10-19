@@ -2,22 +2,26 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [count, setCount] = useState(1);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("produce");
 
+  const generateRandomId = () => {
+    return Math.random().toString(36).slice(2, 11);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Added item: ${name}, quantity: ${count}, category: ${category}`);
 
-    let item = {
-      itemName: name,
-      itemQuantity: count,
-      itemCategory: category,
+    let newItem = {
+      id: generateRandomId(),
+      name: name,
+      quantity: count,
+      category: category,
     };
 
-    alert(`Added item: ${name}, quantity: ${count}, category: ${category}`);
+    onAddItem(newItem);
 
     setName("");
     setCategory("produce");
@@ -25,8 +29,11 @@ export default function NewItem() {
   };
 
   return (
-    <div className="flex justify-center pt-5">
-      <form onSubmit={handleSubmit} className="flex flex-col justify-center">
+    <div className="flex mt-5 mb-10 ml-11">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-center  text-black"
+      >
         <div className="mb-3">
           <input
             type="text"
