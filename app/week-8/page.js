@@ -6,7 +6,7 @@ import MealIdeas from "./meal-ideas";
 import NewItem from "./new-item";
 import { useState } from "react";
 
-export default function PageWeek7() {
+export default function PageWeek8() {
   let itemsArray = itemsData.map((item) => ({ ...item }));
 
   const [itemsList, setItemsList] = useState(itemsArray);
